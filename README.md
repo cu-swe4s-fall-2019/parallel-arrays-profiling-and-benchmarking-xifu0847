@@ -9,13 +9,13 @@ Files:
 
 ## General usage:
 ``
-python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
+python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE}
 ``
 
 ## Profiling usage:
 ``
-python -m cProfile -s tottime plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
+python -m cProfile -s tottime plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE} > ${REPORT_NAME}
 ``
 
@@ -50,13 +50,13 @@ Binary is much way better than linear search!
 # Benchmarking summary:
 
 ## linear search:
-Searching time spent: 16.152998447418213 sec
+Searching time spent: 16.152998447418213 sec\
 Main func time spent: 17.629664182662964 sec
 
 
 ## binary search:
-Sorting time spent: 0.002223968505859375 sec
-Searching time spent: 0.1941835880279541 sec
+Sorting time spent: 0.002223968505859375 sec\
+Searching time spent: 0.1941835880279541 sec\
 Main func time spent: 1.1933798789978027 sec
 
 ## Conclusion:
