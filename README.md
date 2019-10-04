@@ -8,20 +8,20 @@ Files:
 # Usage:
 
 ## General usage:
-``shell
+``
 python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE}
 ``
 
 ## Profiling usage:
-``shell
+``
 python -m cProfile -s tottime plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE}\
 > ${REPORT_NAME}
 ``
 
 ## Benchmarking usage:
-``shell
+``
 python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=True > ${REPORT_NAME}
 ``
