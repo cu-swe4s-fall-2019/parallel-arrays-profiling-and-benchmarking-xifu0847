@@ -1,0 +1,3 @@
+Sorting time spent: 0.002190113067626953 sec
+Searching time spent: 0.20149636268615723 sec
+Main func time spent: 1.5600028038024902 sec
