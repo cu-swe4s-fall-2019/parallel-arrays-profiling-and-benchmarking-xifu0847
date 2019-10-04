@@ -16,8 +16,7 @@ python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE
 ## Profiling usage:
 ``
 python -m cProfile -s tottime plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
---gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE}\
-> ${REPORT_NAME}
+--gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE} > ${REPORT_NAME}
 ``
 
 ## Benchmarking usage:
@@ -34,16 +33,16 @@ GROUP_TYPE: either SMTS or SMTSD\
 FIGURE_NAME: the name of result figure.\
 ALGORITHM: either binary or linear.\
 VERBOSE: True of False. Enable or disable benchmarking\
-REPORT_NAME: the output report name.\
+REPORT_NAME: the output report name.
 
 # Profiling summary:
 
 ## linear search:
 1014025 function calls (999899 primitive calls) in 28.933 seconds\
-45904 calls of linear_search with cum_time as 26.949 seconds\
+45904 calls of linear_search with cum_time as 26.949 seconds
 ## binary search:
 1058972 function calls (1044521 primitive calls) in 2.263 seconds\
-22951 calls of binary_search with cum_time as 0.113 seconds\
+22951 calls of binary_search with cum_time as 0.113 seconds
 
 ## Conclusion:
 Binary is much way better than linear search!
@@ -51,8 +50,8 @@ Binary is much way better than linear search!
 # Benchmarking summary:
 
 ## linear search:
-Searching time spent: 16.152998447418213 sec\
-Main func time spent: 17.629664182662964 sec\
+Searching time spent: 16.152998447418213 sec
+Main func time spent: 17.629664182662964 sec
 
 
 ## binary search:
