@@ -1,0 +1,2 @@
+Searching time spent: 16.152998447418213 sec
+Main func time spent: 17.629664182662964 sec
