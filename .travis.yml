@@ -13,5 +13,6 @@ before_install:
     - conda install --yes matplotlib
       
 script:
+    - bash test_plot_gtex_hash.sh
     - bash test_plot_gtex.sh
     - python -m unittest test_plot_gtex.py
