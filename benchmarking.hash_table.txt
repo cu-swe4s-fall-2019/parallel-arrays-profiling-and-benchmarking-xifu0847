@@ -1,0 +1,2 @@
+hash and search time spent: 0.15149593353271484
+Main func time spent: 1.5242412090301514 sec
