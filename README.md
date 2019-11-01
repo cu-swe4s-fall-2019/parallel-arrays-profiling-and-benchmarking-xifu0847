@@ -8,32 +8,39 @@ Files:
 # Usage:
 
 ## General usage:
-``
+```sh
 python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE}
-``
+```
 
 ## Profiling usage:
-``
+```sh
 python -m cProfile -s tottime plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=${VERBOSE} > ${REPORT_NAME}
-``
+```
 
 ## Benchmarking usage:
-``
+```sh
 python plot_gtex.py --gene_reads=${GENE_READS_FILE} --sample_attributes=${SAMPLE_ATTRIBUTES_FILE}\
 --gene_name=${GENE_NAME} --group_type=${GROUP_TYPE} --output_file=${FIGURE_NAME} --search_algorithm=${ALGORITHM} --verbose=True > ${REPORT_NAME}
-``
+```
+
+## Hash table usage:
+The usage of plot_gtex_hash.py is the same as plot_gtex.py but just remember to delete search_algorithm argument input
+Example:
+```sh
+python3 plot_gtex_hash.py --gene_reads=GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.acmg_59.gct.gz --sample_attributes=GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt --gene_name=ACTA2 --group_type=SMTS --output_file=ACTA2.png --verbose=true
+```
 
 ## Arguments:
-GENE_READS_FILE: name of gene reads file. e.g. GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.acmg_59.gct.gz\
-SAMPLE_ATTRIBUTES_FILE: name of sample attributes file. e.g. GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt\
-GENE_NAME: name of gene for searching. e.g. ACTA2\
-GROUP_TYPE: either SMTS or SMTSD\
-FIGURE_NAME: the name of result figure.\
-ALGORITHM: either binary or linear.\
-VERBOSE: True of False. Enable or disable benchmarking\
-REPORT_NAME: the output report name.
+- GENE_READS_FILE: name of gene reads file. e.g. GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.acmg_59.gct.gz
+- SAMPLE_ATTRIBUTES_FILE: name of sample attributes file. e.g. GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt
+- GENE_NAME: name of gene for searching. e.g. ACTA2
+- GROUP_TYPE: either SMTS or SMTSD
+- FIGURE_NAME: the name of result figure.
+- ALGORITHM: either binary or linear.
+- VERBOSE: True of False. Enable or disable benchmarking
+- REPORT_NAME: the output report name.
 
 # Profiling summary:
 
@@ -43,9 +50,8 @@ REPORT_NAME: the output report name.
 ## binary search:
 1058972 function calls (1044521 primitive calls) in 2.263 seconds\
 22951 calls of binary_search with cum_time as 0.113 seconds
-
-## Conclusion:
-Binary is much way better than linear search!
+## Hash table:
+2968492 function calls (2942404 primitive calls) in 2.392 seconds
 
 # Benchmarking summary:
 
@@ -59,8 +65,28 @@ Sorting time spent: 0.002223968505859375 sec\
 Searching time spent: 0.1941835880279541 sec\
 Main func time spent: 1.1933798789978027 sec
 
-## Conclusion:
-The result is reasonable since sorting method takes similar time while binary search beats linear search in searching time.
+## Hash table:
+hash and search time spent: 0.15149593353271484
+Main func time spent: 1.5242412090301514 sec
+
+# Conclusion:
+Time complexity performance order: Hash table > Binary search > Linear search\
+Space complexity performance order: Binary search = Linear Search > Hash table
 
 
+Time Consumption:
 
+| Method    | Searching Time                                                  |
+| --------  | --------------------------------------------------------------- |
+| Linear    | 16.152998447418213 sec                                          |
+| Binary    | 0.1941835880279541 sec                                          |
+| Hash table| 0.15149593353271484 sec (hashing time included)                 |
+
+The result is reasonable since theoridically,(if we suppose the length of member is M and the length of data_header is N)\
+the time consumption of each method is listed below.
+
+| Method    | Time Complexity Analysis                                        |
+| --------  | --------------------------------------------------------------- |
+| Linear    | O(M*N)                                                          |
+| Binary    | O(M*lgN)                                                        |
+| Hash table| O(M+N)                                                          |
